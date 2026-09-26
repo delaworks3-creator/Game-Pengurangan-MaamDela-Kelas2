@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Pengurangan - SD N 71 MALTENG</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+h1 {
+    color: #1565c0;
+    margin-bottom: 5px;
+}
+
+.school {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.teacher {
+    margin-top: 5px;
+    color: #555;
+}
+
+.instruction {
+    background: #fff3cd;
+    padding: 12px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+#question {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 25px 0;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+button {
+    font-size: 22px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: #90caf9;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+#feedback {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+#score {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.restart {
+    background: #66bb6a;
+    color: white;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>➖ Game Pengurangan</h1>
+
+<div class="school">
+SD N 71 MALTENG
+</div>
+
+<div class="teacher">
+👩‍🏫 Ma'am Dela
+</div>
+
+<div class="instruction">
+Ayo hitung dengan teliti! 🌟<br>
+Pengurangan bilangan di bawah 30.<br>
+Ada 10 soal.
+</div>
+
+<div id="game">
+
+<div id="question"></div>
+
+<div class="options">
+<button onclick="checkAnswer(0)" id="option0"></button>
+<button onclick="checkAnswer(1)" id="option1"></button>
+<button onclick="checkAnswer(2)" id="option2"></button>
+<button onclick="checkAnswer(3)" id="option3"></button>
+</div>
+
+<div id="feedback"></div>
+
+<div id="score"></div>
+
+</div>
+
+<div id="result" class="hidden"></div>
+
+<button class="restart hidden" id="restart" onclick="restartGame()">
+🔄 Main Lagi
+</button>
+
+</div>
+
+<script>
+
+const questions = [
+    {
+        q: "27 − 13 = ...",
+        options: [12, 14, 15, 16],
+        answer: 1
+    },
+    {
+        q: "24 − 11 = ...",
+        options: [11, 12, 13, 14],
+        answer: 2
+    },
+    {
+        q: "29 − 15 = ...",
+        options: [
